@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #fff;
+}
+
+/* Notes Container */
+.notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Note Item */
+.note {
+    background: #1e1e1e; /* Dark gray background */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1); /* Soft white shadow */
+    width: 90%;
+    position: relative;
+    color: #fff;
+}
+
+/* Delete Button (Rectangular with rounded edges) */
+.delete-btn {
+    background: #ff4d4d; /* Red delete button */
+    color: white;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px; /* Slightly rounded corners */
+    font-size: 14px;
+}
+
+/* Floating Add Button (Rectangle with rounded edges) */
+.add-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffb700; /* Yellow floating button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    color: white;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+/* Input Fields */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #333; /* Dark input fields */
+    border: none;
+    border-radius: 6px;
+    color: white;
+}
+
+/* Buttons inside Modal */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.modal-buttons button {
+    background: #ffb700; /* Yellow button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px; /* Rectangular with soft edges */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .note {
+        width: 95%;
+    }
+}
