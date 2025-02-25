@@ -13,19 +13,34 @@
     <h2>My Tasks</h2>
 
     <div class="notes-container">
-        {% for task in tasks %}
-        <div class="note">
-            <h3>{{ task.title }}</h3>
-            <p>{{ task.content }}</p>
-            <form action="{% url 'delete_task' task.id %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="delete-btn">✖</button>
-            </form>
-        </div>
-        {% empty %}
-        <p>No tasks yet. Add one below!</p>
-        {% endfor %}
+    {% for task in tasks %}
+    <div class="note">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.content }}</p>
+
+        <!-- Delete Button -->
+        <form action="{% url 'delete_task' task.id %}" method="POST" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn">✖</button>
+        </form>
+
+        <!-- Update Button (Opens Update Modal) -->
+        <button class="update-btn"
+        onclick="openUpdateModal(
+        '{{ task.id }}',
+        '{{ task.title|escapejs }}',
+        '{{ task.content|escapejs }}'
+    )">
+    ✎
+</button>
+
+
     </div>
+    {% empty %}
+    <p>No tasks yet. Add one below!</p>
+    {% endfor %}
+    </div>
+
 
     <!-- Add Task Button -->
     <button class="add-btn" onclick="openModal()">+</button>
@@ -43,6 +58,21 @@
             <div class="modal-buttons">
                 <button type="submit">Save</button>
                 <button type="button" onclick="closeModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <!-- Update Task Modal -->
+
+    <div class="modal" id="update-modal">
+        <h3>Update a Note</h3>
+        <form id="update-form" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="task_id" id="update-task-id">
+            <input type="text" name="title" id="update-title" required>
+            <textarea name="content" id="update-content" rows="4" required></textarea>
+            <div class="modal-buttons">
+                <button type="submit">Save</button>
+                <button type="button" onclick="closeUpdateModal()">Cancel</button>
             </div>
         </form>
     </div>

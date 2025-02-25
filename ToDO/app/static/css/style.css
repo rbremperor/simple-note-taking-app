@@ -117,6 +117,20 @@ input, textarea {
     cursor: pointer;
     font-size: 16px;
 }
+/* Update Button */
+.update-btn {
+    background: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 40px; /* Space from delete button */
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
 
 /* Responsive */
 @media (max-width: 600px) {
